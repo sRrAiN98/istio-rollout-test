@@ -102,4 +102,3 @@ blueGreen:
   activeService: rollout-test-active
   previewService: rollout-test-preview
   autoPromotionEnabled: true
-  asdasd
