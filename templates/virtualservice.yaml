@@ -1,0 +1,27 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: {{ include "rollout-test.fullname" . }}
+  labels:
+    {{- include "rollout-test.labels" . | nindent 4 }}
+spec:
+  gateways:
+    - istio-system/{{ include "rollout-test.fullname" . }}-gateway
+  hosts:
+    - "*"
+  http:
+  - match:
+    - headers:
+        end-user:
+          exact: "testers"
+    route:
+    - destination:
+        host: {{ include "rollout-test.fullname" . }}-blue
+      weight: 50
+    - destination:
+        host: {{ include "rollout-test.fullname" . }}-green
+      weight: 50
+  - route:
+    - destination:
+        host: {{ include "rollout-test.fullname" . }}
+        subset: v1
