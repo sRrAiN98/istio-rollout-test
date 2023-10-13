@@ -1,9 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "rollout-test.fullname" . }}
+  name: {{ include "rollout-test.fullname" . }}-green
   labels:
     {{- include "rollout-test.labels" . | nindent 4 }}
+    {{ .Release.Name }}: green
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -11,6 +12,7 @@ spec:
   selector:
     matchLabels:
       {{- include "rollout-test.selectorLabels" . | nindent 6 }}
+      {{ .Release.Name }}: green
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -19,6 +21,7 @@ spec:
       {{- end }}
       labels:
         {{- include "rollout-test.selectorLabels" . | nindent 8 }}
+        {{ .Release.Name }}: green
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
