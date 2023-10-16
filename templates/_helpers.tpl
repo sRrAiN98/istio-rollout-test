@@ -37,31 +37,31 @@ Common labels
 helm.sh/chart: {{ include "rollout-test.chart" . }}
 {{ include "rollout-test.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
-app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+app-version: {{ .Chart.AppVersion | quote }}
 {{- end }}
-app.kubernetes.io/managed-by: {{ .Release.Service }}
+app-managed-by: {{ .Release.Service }}
 {{- end }}
 
 {{- define "rollout-test-green.labels" -}}
 helm.sh/chart: {{ include "rollout-test.chart" . }}-green
 {{ include "rollout-test-green.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
-app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+app-version: {{ .Chart.AppVersion | quote }}
 {{- end }}
-app.kubernetes.io/managed-by: {{ .Release.Service }}-green
+app-managed-by: {{ .Release.Service }}-green
 {{- end }}
 
 {{/*
 Selector labels
 */}}
 {{- define "rollout-test.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "rollout-test.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
+app-name: {{ include "rollout-test.name" . }}
+app-instance: {{ .Release.Name }}
 {{- end }}
 
 {{- define "rollout-test-green.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "rollout-test.name" . }}-green
-app.kubernetes.io/instance: {{ .Release.Name }}-green
+app-name: {{ include "rollout-test.name" . }}-green
+app-instance: {{ .Release.Name }}-green
 {{- end }}
 
 {{/*
