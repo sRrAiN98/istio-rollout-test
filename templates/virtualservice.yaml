@@ -10,18 +10,10 @@ spec:
   hosts:
     - "*"
   http:
-  - match:
-    - headers:
-        end-user:
-          exact: "testers"
-    route:
+  - route:
     - destination:
         host: {{ include "rollout-test.fullname" . }}-blue
       weight: 50
     - destination:
         host: {{ include "rollout-test.fullname" . }}-green
       weight: 50
-  - route:
-    - destination:
-        host: {{ include "rollout-test.fullname" . }}
-        subset: v1

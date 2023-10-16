@@ -66,4 +66,4 @@ spec:
       previewService: {{ include "rollout-test.fullname" . }}-green # Reference to a service
       autoPromotionEnabled: true
       previewReplicaCount: 1
-      scaleDownDelaySeconds: 60  #전환후 이전 active pod 삭제 대기 시간
+      scaleDownDelaySeconds: 3600  #전환후 이전 active pod 삭제 대기 시간
