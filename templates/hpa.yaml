@@ -7,7 +7,7 @@ metadata:
     {{- include "rollout-test.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
-    apiVersion: apps/v1
+    apiVersion: argoproj.io/v1alpha1
     kind: Deployment
     name: {{ include "rollout-test.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
