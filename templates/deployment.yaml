@@ -62,7 +62,7 @@ spec:
   strategy:
   # ----- Everything above this comment are the same as a deployment -----
     blueGreen: # A new field for the Blue Green strategy options
-      activeService: {{- include "rollout-test.labels" . | nindent 6 }}-blue # Reference to a service
+      activeService: {{- include "rollout-test.labels" . | nindent 6 }} # Reference to a service
       previewService: {{- include "rollout-test.labels" . | nindent 6 }}-green # Reference to a service
       autoPromotionEnabled: true
       previewReplicaCount: 1
