@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ include "rollout-test.fullname" . }}-green
   labels:
-    {{- include "rollout-test-green.labels" . | nindent 4 }}
+    {{- include "rollout-test.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
