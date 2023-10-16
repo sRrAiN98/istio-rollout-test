@@ -42,9 +42,9 @@ app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
-{{- define "rollout-test.labels-green" -}}
+{{- define "rollout-test-green.labels" -}}
 helm.sh/chart: {{ include "rollout-test.chart" . }}-green
-{{ include "rollout-test.selectorLabels-green" . }}
+{{ include "rollout-test-green.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}-green
 {{- end }}
@@ -59,7 +59,7 @@ app.kubernetes.io/name: {{ include "rollout-test.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
-{{- define "rollout-test.selectorLabels-green" -}}
+{{- define "rollout-test-green.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "rollout-test.name" . }}-green
 app.kubernetes.io/instance: {{ .Release.Name }}-green
 {{- end }}
