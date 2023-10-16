@@ -2,7 +2,7 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "rollout-test.fullname" . }}-blue
+  name: {{ include "rollout-test.fullname" . }}
   labels:
     {{- include "rollout-test.labels" . | nindent 4 }}
 spec:
