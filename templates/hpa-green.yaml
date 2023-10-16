@@ -4,7 +4,7 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: {{ include "rollout-test.fullname" . }}-green
   labels:
-    {{- include "rollout-test.labels" . | nindent 4 }}
+    {{- include "rollout-test.labels-green" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

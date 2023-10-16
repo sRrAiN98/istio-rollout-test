@@ -4,7 +4,6 @@ metadata:
   name: {{ include "rollout-test.fullname" . }}-blue
   labels:
     {{- include "rollout-test.labels" . | nindent 4 }}
-    {{ .Release.Name }}: blue
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -14,4 +13,3 @@ spec:
       name: http
   selector:
     {{- include "rollout-test.selectorLabels" . | nindent 4 }}
-    {{ .Release.Name }}: blue
