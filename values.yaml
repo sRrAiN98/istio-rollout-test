@@ -59,7 +59,7 @@ ingress:
   tls: 
   - hosts:
     - ai.didim365.com
-    secretName: django-ai
+    secretName: nginx-ai
 
 resources:
   limits:
