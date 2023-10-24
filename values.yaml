@@ -62,9 +62,9 @@ ingress:
     secretName: nginx-ai
 
 resources:
-  limits:
-    cpu: 1000m
-    memory: 1024Mi
+#  limits:
+#    cpu: 200m
+#    memory: 512Mi
   requests:
     cpu: 100m
     memory: 128Mi
